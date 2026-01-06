@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buscar Envío - PacketWorld</title>
+    <title>Buscar envío - PacketWorld</title>
     <link rel="stylesheet" href="EnvioStyle.css">
 </head>
 <body>
@@ -13,7 +13,7 @@
     <div class="aplicacion-contenedor">
         
         <header class="encabezado">
-            <h1 class="titulo-logo">Rastreo de Paquetes</h1>
+            <h1 class="titulo-logo">Rastreo de paquetes</h1>
             <label for="interruptor-tema" class="boton-tema" title="Cambiar Tema">
                 <span class="icono-sol">☀️</span>
                 <span class="icono-luna">🌙</span>
@@ -22,37 +22,71 @@
 
         <main class="contenido-principal">
             
+            <!-- Sección de búsqueda -->
             <div class="tarjeta-busqueda">
-                <h2>Rastrear Envío</h2>
+                <h2>Rastrear envío</h2>
                 <div class="grupo-input">
-                    <label for="txt-guia">Número de Guía:</label>
-                    <input type="text" id="txt-guia" placeholder="Ingresa tu número de guía (Ej: GUIA-00002)">
+                    <label for="txt-guia">Número de guía:</label>
+                    <input type="text" id="txt-guia" placeholder="Ingresa tu número de guía (Ej: PW-20260105-163443-55FA5A65)">
                 </div>
                 <button id="btn-buscar" class="boton-accion">Buscar</button>
                 <p id="mensaje-error" class="error-texto" style="display: none;"></p>
             </div>
 
-            <div id="seccion-resultados" class="contenedor-tabla" style="display: none;">
-                <table class="tabla-datos">
-                    <thead>
-                        <tr>
-                            <th colspan="2">Detalles del Envío</th>
-                        </tr>
-                    </thead>
-                    <tbody id="cuerpo-tabla">
-                        </tbody>
-                </table>
-            </div>
+            <!-- Sección de información del envío -->
+            <section id="seccion-envio" class="seccion-resultados" style="display: none;">
+                <div class="tarjeta-seccion">
+                    <h3 class="titulo-seccion">
+                        <span class="icono-seccion">📦</span>
+                        Información del envío
+                    </h3>
+                    <div class="contenedor-tabla">
+                        <table class="tabla-datos">
+                            <tbody id="tabla-envio-cuerpo"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
 
-            <div style="margin-top: 2rem;">
-                <a href="Inicio.html" class="enlace-volver">Volver al Inicio</a>
-            </div>
+            <!-- Sección de paquetes -->
+            <section id="seccion-paquetes" class="seccion-resultados" style="display: none;">
+                <div class="tarjeta-seccion">
+                    <h3 class="titulo-seccion">
+                        <span class="icono-seccion">📋</span>
+                        Paquetes del envío
+                    </h3>
+                    <div class="contenedor-tabla">
+                        <table class="tabla-datos tabla-paquetes">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Descripción</th>
+                                    <th>Alto (cm)</th>
+                                    <th>Ancho (cm)</th>
+                                    <th>Profundidad (cm)</th>
+                                    <th>Peso (kg)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabla-paquetes-cuerpo"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de historial -->
+            <section id="seccion-historial" class="seccion-resultados" style="display: none;">
+                <div class="tarjeta-seccion">
+                    <h3 class="titulo-seccion">
+                        <span class="icono-seccion">📜</span>
+                        Historial de estatus
+                    </h3>
+                    <div id="contenedor-historial" class="contenedor-timeline"></div>
+                </div>
+            </section>
+
 
         </main>
 
-        <footer class="pie-pagina">
-            <p>&copy; 2024 PacketWorldWeb Logística</p>
-        </footer>
     </div>
 
     <script src="../modelo/EnvioModelo.js"></script>
