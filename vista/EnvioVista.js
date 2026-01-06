@@ -19,8 +19,7 @@ class EnvioVista {
     mostrarResultados(envio) {
         this.seccionResultados.style.display = 'block';
 
-        // Mapeo de claves para mostrar nombres bonitos en la tabla
-        // Si quieres mostrar TODO el JSON tal cual, avísame, pero esto se ve mejor.
+       
         const camposAMostrar = [
             { etiqueta: "Guía", valor: envio.noGuia },
             { etiqueta: "Estatus", valor: envio.estatus },

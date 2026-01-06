@@ -1,5 +1,5 @@
-// Importamos (simbólicamente, ya que cargaremos los scripts en el HTML en orden)
-// Nota: En JS puro sin módulos ES6, dependemos del orden de carga en el HTML.
+//Importamos (simbólicamente, ya que cargaremos los scripts en el HTML en orden)
+//En JS puro sin módulos ES6, dependemos del orden de carga en el HTML.
 
 document.addEventListener('DOMContentLoaded', () => {
     const modelo = new EnvioModelo();
@@ -18,10 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
         vista.limpiarVista();
 
         try {
-            // 1. El controlador pide datos al Modelo
+            //El controlador pide datos al Modelo
             const datos = await modelo.consultarEnvio(guia);
             
-            // 2. Si hay datos, el controlador le dice a la Vista que los muestre
+            //Si hay datos, el controlador le dice a la Vista que los muestre
             if (datos) {
                 vista.mostrarResultados(datos);
             } else {

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buscar Envío - PacketWorld</title>
-    <link rel="stylesheet" href="EnvioStyle.css">
+    <title>Paquetes del Envío - PacketWorld</title>
+    <link rel="stylesheet" href="PaqueteStyle.css">
 </head>
 <body>
 
@@ -13,7 +13,7 @@
     <div class="aplicacion-contenedor">
         
         <header class="encabezado">
-            <h1 class="titulo-logo">Rastreo de Envios</h1>
+            <h1 class="titulo-logo">Contenido del Envío</h1>
             <label for="interruptor-tema" class="boton-tema" title="Cambiar Tema">
                 <span class="icono-sol">☀️</span>
                 <span class="icono-luna">🌙</span>
@@ -23,12 +23,12 @@
         <main class="contenido-principal">
             
             <div class="tarjeta-busqueda">
-                <h2>Rastrear Envío</h2>
+                <h2>Buscar Paquetes</h2>
                 <div class="grupo-input">
-                    <label for="txt-guia">Número de Guía:</label>
-                    <input type="text" id="txt-guia" placeholder="Ingresa tu número de guía (Ej: GUIA-00002)">
+                    <label for="txt-id-envio">ID del Envío:</label>
+                    <input type="number" id="txt-id-envio" placeholder="Ej: 1">
                 </div>
-                <button id="btn-buscar" class="boton-accion">Buscar</button>
+                <button id="btn-buscar-paquetes" class="boton-accion">Obtener Paquetes</button>
                 <p id="mensaje-error" class="error-texto" style="display: none;"></p>
             </div>
 
@@ -36,24 +36,32 @@
                 <table class="tabla-datos">
                     <thead>
                         <tr>
-                            <th colspan="2">Detalles del Envío</th>
+                            <th>Descripción</th>
+                            <th>Peso</th>
+                            <th>Dimensiones (cm)</th>
+                            <th>Guía</th>
+                            <th>ID Paq.</th>
                         </tr>
                     </thead>
-                    <tbody id="cuerpo-tabla">
+                    <tbody id="cuerpo-tabla-paquetes">
                         </tbody>
                 </table>
+            </div>
+
+            <div style="margin-top: 2rem;">
+                <a href="inicio.html" class="enlace-volver">Volver al Inicio</a>
             </div>
 
         </main>
 
         <footer class="pie-pagina">
-            <p>&copy; 2026 PacketWorld Logística</p>
+            <p>&copy; 2024 PacketWorld Logística</p>
         </footer>
     </div>
 
-    <script src="../modelo/EnvioModelo.js"></script>
-    <script src="EnvioVista.js"></script>
-    <script src="../controlador/EnvioControlador.js"></script>
+    <script src="../modelo/PaqueteModelo.js"></script>
+    <script src="PaqueteVista.js"></script>
+    <script src="../controlador/PaqueteControlador.js"></script>
 
 </body>
 </html>
