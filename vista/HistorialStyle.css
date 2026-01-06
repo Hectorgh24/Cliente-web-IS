@@ -1,16 +1,15 @@
-/* =========================================
-   VARIABLES Y TEMA (Lógica Día/Noche)
-   ========================================= */
-   :root {
+
+:root {
     --color-fondo: #f4f6f9;
     --color-tarjeta: #ffffff;
     --color-texto: #333333;
     --color-primario-azul: #0056b3;
     --color-primario-hover: #004494;
+    --color-timeline-linea: #ddd;
+    --color-timeline-punto: #bbb;
+    --color-verde-exito: #28a745; 
     --color-borde: #ddd;
     --color-input-bg: #fff;
-    --color-tabla-head: #0056b3;
-    --color-tabla-fila-par: #f9f9f9;
     --color-error: #dc3545;
 }
 
@@ -20,10 +19,11 @@
     --color-texto: #e0e0e0;
     --color-primario-azul: #1565c0;
     --color-primario-hover: #0d47a1;
+    --color-timeline-linea: #444;
+    --color-timeline-punto: #555;
+    --color-verde-exito: #00e676;
     --color-borde: #444;
     --color-input-bg: #333;
-    --color-tabla-head: #1565c0;
-    --color-tabla-fila-par: #2c2c2c;
 }
 
 .checkbox-tema, .icono-luna { display: none; }
@@ -31,9 +31,7 @@
 .checkbox-tema:checked ~ .aplicacion-contenedor .icono-sol { display: none; }
 .checkbox-tema:checked ~ .aplicacion-contenedor .icono-luna { display: block; }
 
-
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; transition: all 0.3s; }
-
 body, html { height: 100%; }
 
 .aplicacion-contenedor {
@@ -52,7 +50,7 @@ body, html { height: 100%; }
     background-color: var(--color-tarjeta);
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-.titulo-logo { color: var(--color-primario-azul); }
+.titulo-logo { color: var(--color-primario-azul); font-size: 1.5rem; font-weight: bold;}
 .boton-tema { cursor: pointer; font-size: 1.5rem; user-select: none; }
 
 .contenido-principal {
@@ -77,7 +75,6 @@ body, html { height: 100%; }
 
 .grupo-input { margin: 1.5rem 0; text-align: left; }
 .grupo-input label { display: block; margin-bottom: 0.5rem; font-weight: bold; }
-
 .grupo-input input {
     width: 100%;
     padding: 10px;
@@ -99,47 +96,67 @@ body, html { height: 100%; }
     width: 100%;
 }
 .boton-accion:hover { background-color: var(--color-primario-hover); }
-
 .error-texto { color: var(--color-error); margin-top: 1rem; font-weight: bold; }
 
-.contenedor-tabla {
-    width: 100%;
-    max-width: 800px;
-    overflow-x: auto; 
-}
 
-.tabla-datos {
+.contenedor-timeline-wrapper {
     width: 100%;
-    border-collapse: collapse;
+    max-width: 600px;
     background-color: var(--color-tarjeta);
-    border-radius: 8px;
-    overflow: hidden;
+    padding: 2rem;
+    border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border: 1px solid var(--color-borde);
 }
 
-.tabla-datos th {
-    background-color: var(--color-tabla-head);
-    color: white;
-    padding: 1rem;
-    text-align: left;
+.linea-tiempo {
+    position: relative;
+    border-left: 3px solid var(--color-timeline-linea);
+    margin-left: 10px;
+    padding-left: 30px;
 }
 
-.tabla-datos td {
-    padding: 1rem;
-    border-bottom: 1px solid var(--color-borde);
+.evento-timeline {
+    position: relative;
+    margin-bottom: 2rem;
+}
+.evento-timeline:last-child { margin-bottom: 0; }
+
+.punto-timeline {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: var(--color-timeline-punto);
+    border-radius: 50%;
+    left: -39px; 
+    top: 5px;
+    border: 3px solid var(--color-tarjeta); 
+}
+
+.evento-reciente .punto-timeline {
+    background-color: var(--color-verde-exito);
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.2);
+}
+.evento-reciente .estatus-evento {
+    color: var(--color-verde-exito);
+}
+
+.fecha-evento {
+    font-size: 0.85rem;
     color: var(--color-texto);
+    opacity: 0.7;
+    margin-bottom: 0.2rem;
 }
 
-.columna-etiqueta { font-weight: bold; width: 40%; }
-.tabla-datos tr:last-child td { border-bottom: none; }
-.tabla-datos tr:nth-child(even) { background-color: var(--color-tabla-fila-par); }
+.estatus-evento {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-primario-azul);
+}
 
-.pie-pagina { text-align: center; padding: 1rem; opacity: 0.7; border-top: 1px solid var(--color-borde); }
-
-@media (max-width: 600px) {
-    .contenido-principal { padding: 1rem; }
-    .columna-etiqueta { width: 35%; font-size: 0.9rem; }
-    .tabla-datos td { padding: 0.8rem; font-size: 0.9rem; }
+.comentario-evento {
+    font-size: 0.95rem;
+    line-height: 1.4;
 }
 
 .enlace-volver {
@@ -148,8 +165,6 @@ body, html { height: 100%; }
     font-weight: bold;
     font-size: 1.1rem;
 }
+.enlace-volver:hover { text-decoration: underline; }
 
-.enlace-volver:hover {
-    text-decoration: underline;
-    color: var(--color-primario-hover);
-}
+.pie-pagina { text-align: center; padding: 1rem; opacity: 0.7; border-top: 1px solid var(--color-borde); }
