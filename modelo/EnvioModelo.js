@@ -41,9 +41,6 @@ class EnvioModelo {
         const respuesta = await fetch(`${this.urlBasePaquetes}${idEnvio}`);
 
         if (!respuesta.ok) {
-            if (respuesta.status === 404) {
-                return [];
-            }
             throw new Error(`Error al consultar paquetes: ${respuesta.status}`);
         }
 

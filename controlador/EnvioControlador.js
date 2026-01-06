@@ -7,7 +7,6 @@ class EnvioControlador {
         this._inicializarEventos();
     }
 
-
      // Inicializar eventos de la aplicación.
     _inicializarEventos() {
         const botonBuscar = document.getElementById('btn-buscar');
@@ -32,6 +31,7 @@ class EnvioControlador {
             return;
         }
 
+        // Limpiar todas las secciones y elementos de la vista
         this.vista.limpiarVista();
 
         try {
@@ -78,7 +78,6 @@ class EnvioControlador {
             this.vista.mostrarPaquetes(paquetes);
         } catch (error) {
             console.error('Error al cargar paquetes:', error);
-            // No mostrar error crítico, solo log, ya que la info principal ya se mostró
         }
     }
 
@@ -89,7 +88,6 @@ class EnvioControlador {
             this.vista.mostrarHistorial(historial);
         } catch (error) {
             console.error('Error al cargar historial:', error);
-            // No mostrar error crítico, solo log
         }
     }
 }
