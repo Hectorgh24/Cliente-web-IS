@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Envío - PacketWorld</title>
+    <link rel="stylesheet" href="enviostyle.css">
+</head>
+<body>
+
+    <input type="checkbox" id="interruptor-tema" class="checkbox-tema">
+
+    <div class="aplicacion-contenedor">
+        
+        <header class="encabezado">
+            <h1 class="titulo-logo">Rastreo de Paquetes</h1>
+            <label for="interruptor-tema" class="boton-tema" title="Cambiar Tema">
+                <span class="icono-sol">☀️</span>
+                <span class="icono-luna">🌙</span>
+            </label>
+        </header>
+
+        <main class="contenido-principal">
+            
+            <div class="tarjeta-busqueda">
+                <h2>Rastrear Envío</h2>
+                <div class="grupo-input">
+                    <label for="txt-guia">Número de Guía:</label>
+                    <input type="text" id="txt-guia" placeholder="Ingresa tu número de guía (Ej: GUIA-00002)">
+                </div>
+                <button id="btn-buscar" class="boton-accion">Buscar</button>
+                <p id="mensaje-error" class="error-texto" style="display: none;"></p>
+            </div>
+
+            <div id="seccion-resultados" class="contenedor-tabla" style="display: none;">
+                <table class="tabla-datos">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Detalles del Envío</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpo-tabla">
+                        </tbody>
+                </table>
+            </div>
+
+        </main>
+
+        <footer class="pie-pagina">
+            <p>&copy; 2024 PacketWorld Logística</p>
+        </footer>
+    </div>
+
+    <script src="../modelo/EnvioModelo.js"></script>
+    <script src="EnvioVista.js"></script>
+    <script src="../controlador/EnvioControlador.js"></script>
+
+</body>
+</html>

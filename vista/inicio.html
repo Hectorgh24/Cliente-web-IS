@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Envíos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <input type="checkbox" id="interruptor-tema" class="checkbox-tema">
+
+    <div class="aplicacion-contenedor">
+        
+        <header class="encabezado">
+            <h1 class="titulo-logo">Gestión de Envíos</h1>
+            
+            <label for="interruptor-tema" class="boton-tema" title="Cambiar Tema">
+                <span class="icono-sol">☀️</span>
+                <span class="icono-luna">🌙</span>
+            </label>
+        </header>
+
+        <main class="contenido-principal">
+            <nav class="menu-opciones">
+                <button class="boton-opcion" type="button" onclick="console.log('Navegar: obtener-envio')">
+                    <span class="texto-boton">Obtener Envío</span>
+                </button>
+
+                <button class="boton-opcion" type="button" onclick="console.log('Navegar: obtener-paquetes-envio')">
+                    <span class="texto-boton">Obtener Paquetes Envío</span>
+                </button>
+
+                <button class="boton-opcion" type="button" onclick="console.log('Navegar: envio-historial-estatus')">
+                    <span class="texto-boton">Historial Estatus Envío</span>
+                </button>
+            </nav>
+        </main>
+
+        <footer class="pie-pagina">
+            <p>&copy; 2024 Sistema Logístico</p>
+        </footer>
+
+    </div>
+</body>
+</html>
