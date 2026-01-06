@@ -5,7 +5,6 @@ class EnvioModelo {
 
     async consultarEnvio(noGuia) {
         try {
-            // Construimos la URL completa con el número de guía
             const respuesta = await fetch(`${this.urlBase}${noGuia}`);
 
             if (!respuesta.ok) {
@@ -13,10 +12,19 @@ class EnvioModelo {
             }
 
             const datos = await respuesta.json();
+
+            if (Array.isArray(datos)) {
+                if (datos.length > 0) {
+                    return datos[0]; 
+                } else {
+                    return null; 
+                }
+            }
+
             return datos;
         } catch (error) {
             console.error("Error en el modelo:", error);
-            throw error; // Lanzamos el error para que el controlador lo maneje
+            throw error; 
         }
     }
 }
