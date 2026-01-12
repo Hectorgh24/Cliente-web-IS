@@ -44,12 +44,26 @@ class EnvioControlador {
 
     // Validar número de guía ingresado.
     _validarGuia(noGuia) {
+
+        // 1. Campo vacío
         if (!noGuia) {
             this.vista.mostrarError('Por favor, ingresa un número de guía.');
             return false;
         }
+
+        // 2. Validar caracteres permitidos
+        const patronPermitido = /^[A-Za-z0-9-]+$/;
+
+        if (!patronPermitido.test(noGuia)) {
+            this.vista.mostrarError(
+                'El número de guía solo puede contener letras, números y guiones (-).'
+            );
+            return false;
+        }
+
         return true;
     }
+
 
     // Buscar y mostrar toda la información del envío.
     async _buscarYMostrarEnvio(noGuia) {
