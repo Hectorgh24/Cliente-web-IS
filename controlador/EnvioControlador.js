@@ -20,6 +20,12 @@ class EnvioControlador {
                 this._manejarBusqueda();
             }
         });
+
+        inputGuia.addEventListener('input', () => {
+            inputGuia.value = inputGuia.value
+                .toUpperCase()
+                .replace(/[^A-Z0-9-]/g, '');
+        });
     }
 
     // Manejar evento de búsqueda.
